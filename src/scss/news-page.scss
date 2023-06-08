@@ -1,0 +1,194 @@
+//====================================================================================================
+.news {
+    &__title {
+        margin-bottom: rem(29);
+        @media (min-width: $mobileSmall) {
+            margin-bottom: em(40, 32);
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(20);
+
+        @media (min-width: $tablet) {
+            gap: rem(40) rem(24);
+        }
+
+        @media (min-width: $mobile) and (max-width: $tablet) {
+            gap: rem(26) rem(20);
+        }
+
+        &_full {
+            margin-bottom: rem(46);
+
+            @media (min-width: $tablet) {
+                margin-bottom: rem(52);
+            }
+        }
+    }
+}
+
+.news-card {
+    &_big {
+        @media (min-width: $tablet) {
+            flex: 0 0 calc(50% - rem(12));
+            margin-bottom: rem(20);
+        }
+        @media (min-width: $mobile) and (max-width: $tablet) {
+            &:nth-child(2) {
+                margin-bottom: rem(10);
+            }
+        }
+    }
+
+    &_small {
+        @media (min-width: $tablet) {
+            flex: 0 0 calc(33.33% - rem(16));
+        }
+
+        @media (min-width: $mobile) and (max-width: $tablet) {
+            flex: 0 0 calc(50% - rem(13));
+        }
+    }
+
+    transition: transform 0.3s;
+
+    @media (any-hover: hover) {
+        &:hover {
+            .news-card__date {
+                color: inherit;
+            }
+
+            .title {
+                color: #8abb63;
+            }
+
+            .news-card__img {
+                img {
+                    transform: scale(1.12);
+                }
+            }
+        }
+    }
+
+    &:active {
+        transform: scale(0.97);
+        .news-card__date {
+            color: inherit;
+        }
+
+        .title {
+            color: #8abb63;
+        }
+
+        .news-card__img {
+            img {
+                transform: scale(1.12);
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        column-gap: rem(20);
+        transition: transform 0.3s;
+
+        @media (min-width: $tablet) {
+            column-gap: rem(24);
+        }
+    }
+
+    &__title {
+        transition: color 0.3s;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        row-gap: em(12, 16);
+        flex: 0 1 auto;
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        flex: 1 0 calc(50% - rem(10));
+        height: max-content;
+        border-radius: 10px;
+        overflow: hidden;
+
+        picture {
+            width: 100%;
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: rem(110);
+            transition: transform 0.3s;
+        }
+
+        &_big {
+            @media (min-width: $tablet) {
+                flex: 1 0 calc(50% - rem(12));
+            }
+            @media (min-width: $mobileBig) and (max-width: $tablet) {
+                flex: 1 0 calc(33% - rem(10));
+            }
+
+            img {
+                @media (min-width: $tablet) {
+                    max-width: rem(290);
+                }
+
+                @media (min-width: $mobile) {
+                    height: rem(201);
+                }
+
+                @media (min-width: $mobileSmall) and (max-width: $mobile) {
+                    height: rem(128);
+                }
+            }
+        }
+        &_small {
+            @media (min-width: $tablet) {
+                flex: 1 0 calc(50% - rem(12));
+            }
+
+            @media (min-width: $mobile) and (max-width: $tablet) {
+                flex: 1 0 calc(50% - rem(10));
+            }
+            @media (min-width: $mobileBig) and (max-width: $mobile) {
+                flex: 1 0 calc(33% - rem(10));
+            }
+            img {
+                @media (min-width: $tablet) {
+                    max-width: rem(185);
+                }
+
+                @media (min-width: $mobileSmall) {
+                    height: rem(128);
+                }
+            }
+        }
+    }
+
+    &__date {
+        font-size: rem(14);
+        font-weight: 700;
+        color: $greenColor;
+        transition: color 0.3s;
+    }
+
+    &__text {
+        padding-top: em(9, 16);
+        line-height: 1.22;
+        @media (max-width: $mobile) {
+            display: none;
+        }
+    }
+}
+
+//====================================================================================================

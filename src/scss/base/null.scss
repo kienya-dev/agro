@@ -25,13 +25,19 @@ body {
 	color: $mainColor;
 	line-height: 1;
 	font-family: $fontFamily;
-	font-size: $fontSize;
 	//text-rendering: optimizeLegibility;
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	@media (min-height: $pc) {
+		font-size: $fontSize;
+	}
+	@media (max-height: $pc) {
+		@include adaptiveValue(font-size, 16, 14, 1280, 480, 1);
+	}
 }
 input,
 button,

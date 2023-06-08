@@ -7,29 +7,29 @@
 //&display=swap - добавить при подключении через плагин
 
 // Подключить если есть локальные файлы шрифтов
-//@import "fonts/fonts";
+@import "fonts/fonts";
 
 // Подключение иконочных шрифтов ==============================================================================================================================================================================================================================================================================
 // Подключить если есть файл иконочного шрифта
 //@import "fonts/icons";
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$fontFamily: "";
-$fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
+$fontFamily: "Inter";
+$fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
-$mainColor: #000; // Цвет шрифта по умолчанию
-
+$mainColor: #2e302d; // Цвет шрифта по умолчанию
+$greenColor: #8abb63;
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
-$minWidth: 320;
+$minWidth: 375;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1170;
+$maxWidthContainer: 1230;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
-$containerPadding: 30;
+$containerPadding: 40;
 
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -38,6 +38,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 $pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
 $tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
 $mobile: em(767.98); // Телефоны L
+$mobileBig: em(639.98);
 $mobileSmall: em(479.98); // Телефоны S
 
 // Тип адаптива:
@@ -120,6 +121,212 @@ body {
 	}
 }
 
+.page {
+	&__title {
+		@media (max-width: $mobile) {
+			text-align: center;
+		}
+	}
+
+	&__columns {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(26);
+
+		@media (any-hover: hover) {
+			&:hover {
+				.page__img {
+					transform: translate(rem(7), rem(-7));
+					@media (min-width: $tablet) {
+						transform: translate(rem(14), rem(-14));
+					}
+				}
+			}
+		}
+
+		@media (min-width: $tablet) {
+			gap: rem(44);
+		}
+
+		@media (max-width: $tablet) {
+			flex-direction: column;
+		}
+
+		&_reverse {
+			@media (min-width: $tablet) {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	&__column {
+		&:nth-child(1) {
+			@media (min-width: $tablet) {
+				flex: 1 1 rem(499);
+			}
+		}
+
+		&:nth-child(2) {
+			@media (min-width: $tablet) {
+				flex: 0 1 rem(660);
+			}
+		}
+
+		&_picture {
+			position: relative;
+			padding-top: rem(16);
+			padding-right: rem(16);
+
+			@media (min-width: $tablet) {
+				padding-top: rem(24);
+				padding-right: rem(24);
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: calc(100% - rem(24));
+				height: calc(100% - rem(24));
+				max-height: rem(416);
+				border-radius: 10px;
+				background-color: #b5dc61;
+			}
+		}
+	}
+
+	&__img {
+		position: relative;
+		display: flex;
+		height: max-content;
+		z-index: 1;
+		border-radius: 10px;
+		overflow: hidden;
+		transition: transform 0.3s;
+		img {
+			width: 100%;
+			border-radius: 10px;
+			object-fit: cover;
+			@include adaptiveValue(height, 416, 268, 768, 480, 1);
+			@media (min-width: $tablet) {
+				max-width: rem(499);
+			}
+
+			@media (min-width: $mobile) {
+				height: rem(416);
+			}
+		}
+
+		picture {
+			width: 100%;
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		row-gap: em(18, 16);
+		line-height: 1.2;
+	}
+
+	&__link {
+		display: inline-block;
+		color: #547e32;
+		text-decoration: underline !important;
+		transition: color 0.3s, transform 0.3s;
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: #b5dc61;
+				text-decoration: none !important;
+			}
+		}
+
+		&:active {
+			transform: scale(0.98) translateY(rem(1));
+			text-decoration: none !important;
+		}
+	}
+
+	&__more {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.inner-page {
+	&_about {
+		padding: rem(20) 0 rem(32);
+
+		@media (min-width: $tablet) {
+			padding: rem(24) 0 rem(98);
+		}
+
+		@media (min-width: $mobile) and (max-width: $tablet) {
+			padding: rem(20) 0 rem(60);
+		}
+	}
+
+	&_news {
+		padding: rem(20) 0 rem(50);
+		@media (min-width: $tablet) {
+			padding: rem(24) 0 rem(55);
+		}
+	}
+
+	&_article {
+		padding: rem(20) 0 rem(32);
+
+		@media (min-width: $tablet) {
+			padding: rem(20) 0 rem(61);
+		}
+		@media (min-width: $mobile) and (max-width: $tablet) {
+			padding: rem(20) 0 rem(50);
+		}
+	}
+
+	&__about {
+		margin-bottom: rem(43);
+
+		@media (min-width: $tablet) {
+			margin-bottom: rem(72);
+		}
+		@media (min-width: $mobile) and (max-width: $tablet) {
+			margin-bottom: rem(54);
+		}
+	}
+
+	&__advantages {
+		margin-bottom: rem(30);
+		@media (min-width: $tablet) {
+			margin-bottom: rem(54);
+		}
+		@media (min-width: $mobile) and (max-width: $tablet) {
+			margin-bottom: rem(44);
+		}
+	}
+
+	&__news {
+		.news-card_small:last-child {
+			@media (min-width: $mobile) and (max-width: $tablet) {
+				display: none;
+			}
+		}
+	}
+
+	&__article {
+		margin-bottom: rem(36);
+		@media (min-width: $tablet) {
+			margin-bottom: rem(50);
+		}
+	}
+}
+
 // Подключение базовых стилей, шаблонов (заготовок) и вспомогательных  классов
 // Для подключения/отключения конкретных стилей смотри base.scss
 @import "base";
@@ -132,4 +339,6 @@ body {
 @import "footer";
 
 // Подключение стилей отдельных страниц
-@import "home";
+@import "about";
+@import "news-page";
+@import "article-page";

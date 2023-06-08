@@ -1,0 +1,25 @@
+.article {
+    &__date {
+        display: inline-block;
+        margin-bottom: em(14, 15);
+        font-size: rem(14);
+        font-weight: 700;
+        color: $greenColor;
+    }
+
+    &__title {
+        margin-bottom: 1em;
+    }
+
+    &__main {
+        display: grid;
+        row-gap: rem(32);
+        @media (min-width: $tablet) {
+            row-gap: rem(40);
+        }
+    }
+
+    &__inner-title {
+        margin-bottom: rem(-6);
+    }
+}

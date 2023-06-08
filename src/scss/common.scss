@@ -1,1 +1,279 @@
-// Заголовки, общие БЄМ блоки и проче...
+.title {
+    line-height: 1.22;
+
+    span {
+        color: #b5dc61;
+    }
+
+    &_size_32 {
+        @include adaptiveValue(font-size, 32, 24, 1280, 480, 1);
+        @media (min-width: $pc) {
+            font-size: rem(32);
+        }
+    }
+
+    &_size_24 {
+        @include adaptiveValue(font-size, 24, 18, 992, 480, 1);
+        @media (min-width: $tablet) {
+            font-size: rem(24);
+        }
+    }
+
+    &_weight_bold {
+        font-weight: 700;
+    }
+
+    &_text_uppercase {
+        text-transform: uppercase;
+    }
+
+    &_color_white {
+        color: #ffffff;
+    }
+
+    &_decoration {
+        position: relative;
+        padding-bottom: em(22, 32);
+        text-align: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: rem(223);
+            height: rem(2);
+            background-color: #8abb63;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+    &_theme_more {
+        column-gap: rem(11);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #8abb63;
+        transition: color 0.3s, transform 0.3s;
+
+        svg {
+            width: rem(24);
+            height: rem(13);
+            fill: currentColor;
+            transition: fill 0.3s, transform 0.3s;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #6abb63;
+                svg {
+                    transform: translateX(rem(5));
+                }
+
+                &:active {
+                    svg {
+                        transform: translateX(rem(10));
+                    }
+                }
+            }
+        }
+
+        &:active {
+            svg {
+                transform: translateX(rem(10));
+            }
+        }
+    }
+
+    &_theme_main {
+        height: rem(60);
+        padding: rem(10) rem(58);
+        border: 2px solid transparent;
+        border-radius: 5px;
+        font-size: rem(18);
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &_theme_green {
+        color: #ffffff;
+        background-color: #8abb63;
+        transition: border-color 0.3s, color 0.3s, background-color 0.3s, transform 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #8abb63;
+                border-color: #8abb63;
+                background-color: #ffffff;
+                &:active {
+                    border-color: transparent;
+                    color: #ffffff;
+                    background-color: #6abb63;
+                    transform: translateY(rem(2)) scale(0.97);
+                }
+            }
+        }
+
+        &:active {
+            border-color: transparent;
+            color: #ffffff;
+            background-color: #6abb63;
+            transform: translateY(rem(2)) scale(0.97);
+        }
+    }
+}
+
+//------------------
+.advantages {
+    position: relative;
+    padding-top: rem(36);
+    @include adaptiveValue(padding-bottom, 139, 72, 992, 480, 1);
+
+    @media (min-width: $tablet) {
+        padding: rem(40) 0 rem(139);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &__container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__title {
+        margin-bottom: rem(44);
+
+        @media (min-width: $mobileSmall) {
+            margin-bottom: em(73, 32);
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: rem(64) rem(25);
+
+        @media (min-width: $pc) {
+            justify-content: space-between;
+        }
+
+        @media (max-width: $pc) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__advantage {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(40);
+        align-items: center;
+
+        @media (min-width: $pc) {
+            flex: 0 0 calc(20% - rem(20));
+        }
+
+        @media (min-width: $mobile) and (max-width: $pc) {
+            flex: 0 0 calc(33.333% - rem(20));
+        }
+    }
+
+    &__icon {
+        width: rem(64);
+        height: rem(64);
+        fill: #b5dc61;
+    }
+
+    &__caption {
+        max-width: rem(227);
+        font-size: rem(18);
+        text-align: center;
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+}
+
+.partners {
+    &__title {
+        margin-bottom: rem(30);
+        @media (min-width: $mobile) {
+            margin-bottom: em(62, 32);
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: rem(36) rem(32);
+
+        @media (min-width: $pc) {
+            justify-content: space-between;
+        }
+
+        @media (max-width: $pc) {
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 1 calc(50% - rem(18));
+        transition: transform 0.3s;
+
+        @media (min-width: $pc) {
+            flex: 0 1 calc(14.28% - rem(31));
+        }
+
+        @media (min-width: $mobileBig) and (max-width: $pc) {
+            flex: 0 1 calc(33.33% - rem(25));
+        }
+
+        @media (max-width: $pc) {
+            &:nth-child(6) {
+                display: none;
+            }
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                transform: translateY(rem(-8));
+            }
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__more {
+        @media (min-width: $pc) {
+            display: none;
+        }
+    }
+}
