@@ -49,6 +49,14 @@ $responsiveType: 1;
 // Обнуление и общие параметры ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
 @import "base/null";
 
+.preload * {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
 body {
 	// Скролл заблокирован
 	.lock & {
@@ -235,21 +243,21 @@ body {
 	}
 
 	&__link {
-		display: inline-block;
+		border-bottom: 1px solid currentColor;
 		color: #547e32;
-		text-decoration: underline !important;
-		transition: color 0.3s, transform 0.3s;
+		transition: color 0.3s, border-color 0.3s, transform 0.3s;
 
 		@media (any-hover: hover) {
 			&:hover {
 				color: #b5dc61;
-				text-decoration: none !important;
+				border-color: transparent;
 			}
 		}
 
 		&:active {
+			color: #b5dc61;
+			border-color: transparent;
 			transform: scale(0.98) translateY(rem(1));
-			text-decoration: none !important;
 		}
 	}
 
@@ -269,6 +277,14 @@ body {
 
 		@media (min-width: $mobile) and (max-width: $tablet) {
 			padding: rem(20) 0 rem(60);
+		}
+	}
+
+	&_services {
+		padding: rem(24) 0 rem(66);
+
+		@media (min-width: $tablet) {
+			padding: rem(24) 0 rem(50);
 		}
 	}
 
@@ -339,6 +355,8 @@ body {
 @import "footer";
 
 // Подключение стилей отдельных страниц
+@import "catalog";
+@import "services";
 @import "about";
 @import "news-page";
 @import "article-page";

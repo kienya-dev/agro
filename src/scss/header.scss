@@ -1,4 +1,39 @@
 //====================================================================================================
+.header {
+	&__nav {
+		@media (min-width: $pc) {
+			padding: rem(12) 0;
+			background-color: #b5dc61;
+		}
+	}
+
+	&__menu {
+		display: none;
+		top: rem(0);
+		left: rem(0);
+	}
+
+	&__list {
+	}
+
+	&__item {
+		&:not(&:first-child) {
+			padding-left: rem(22);
+
+			&::before {
+				@media (min-width: $pc) {
+					background-color: #e6f5b4;
+				}
+			}
+		}
+		&:not(&:last-child) {
+			padding-right: rem(22);
+		}
+	}
+
+	&__link {
+	}
+}
 
 //====================================================================================================
 

@@ -1,0 +1,192 @@
+.services {
+    &__title {
+        margin-bottom: rem(28);
+        @media (min-width: $tablet) {
+            margin-bottom: rem(37);
+        }
+        @media (max-width: $tablet) {
+            text-align: center;
+        }
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: rem(24);
+        margin-bottom: rem(36);
+
+        @media (min-width: $tablet) {
+            justify-content: space-between;
+        }
+
+        @media (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__item {
+        flex: 1 1 100%;
+
+        @media (min-width: $tablet) {
+            flex: 0 0 calc(33.333% - rem(16));
+        }
+
+        @media (min-width: $mobileBig) and (max-width: $tablet) {
+            flex: 0 0 calc(50% - rem(16));
+        }
+    }
+
+    &__service {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(108);
+        align-items: center;
+        padding: rem(46) rem(10);
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: border-color 0.3s, transform 0.3s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 135%;
+            height: rem(160);
+            background-color: #d9d9d9;
+            border-radius: 50% 50% 0 0;
+            transform: translate(-50%, 0);
+            transition: background-color 0.3s;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    background-color: rgba(138, 187, 99, 0.5);
+                }
+                & svg {
+                    fill: rgba(138, 187, 99, 0.5);
+                }
+                border-color: rgba(138, 187, 99, 0.5);
+                transform: translateY(rem(-8));
+            }
+        }
+
+        &:active {
+            &::after {
+                background-color: rgba(138, 187, 99, 0.5);
+            }
+            & svg {
+                fill: rgba(138, 187, 99, 0.5);
+            }
+            border-color: rgba(138, 187, 99, 0.5);
+            transform: scale(0.97);
+        }
+
+        &_active {
+            pointer-events: none;
+            &::after {
+                background-color: #8abb63;
+            }
+
+            .title {
+                color: #ffffff;
+            }
+        }
+    }
+
+    &__caption {
+        position: relative;
+        width: min-content;
+        padding: 0 rem(20);
+        z-index: 1;
+        text-align: center;
+    }
+
+    &__icon {
+        width: rem(132);
+        height: rem(132);
+        fill: #8abb63;
+        transition: fill 0.3s;
+    }
+}
+
+.consultation-service {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    overflow: hidden;
+    @media (max-width: $tablet) {
+        flex-direction: column;
+    }
+    &__content {
+        padding: rem(18) rem(24);
+        @media (min-width: $tablet) {
+            padding: rem(27) rem(39);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(18);
+    }
+
+    &__text {
+        margin-bottom: rem(20);
+        line-height: 1.2;
+    }
+
+    &__list {
+        display: grid;
+        row-gap: rem(6);
+    }
+
+    &__item {
+        position: relative;
+        padding-left: rem(24);
+        line-height: 1.25;
+
+        &::before {
+            content: "";
+            width: rem(6);
+            height: rem(6);
+            background-color: currentColor;
+            position: absolute;
+            top: rem(6);
+            left: rem(9);
+            border-radius: 50%;
+        }
+    }
+
+    &__img {
+        @media (min-width: $tablet) {
+            flex: 0 1 rem(394);
+        }
+        @media (min-width: $mobileSmall) and (max-width: $tablet) {
+            display: flex;
+            justify-content: center;
+            margin: rem(10) 0 rem(20);
+        }
+        img {
+            object-fit: cover;
+
+            @media (min-width: $tablet) {
+                width: rem(394);
+                height: 100%;
+            }
+
+            @media (min-width: $mobileSmall) and (max-width: $tablet) {
+                border-radius: 10px;
+                max-width: rem(394);
+            }
+
+            @media (max-width: $tablet) {
+                height: rem(320);
+                width: 100%;
+            }
+        }
+    }
+}
