@@ -187,15 +187,17 @@
         display: inline-block;
         transition: color 0.3s, transform 0.3s;
 
-        @media (any-hover: hover) {
-            &:hover {
-                color: #e6f5b4;
+        @media (max-width: $pc) {
+            @media (any-hover: hover) {
+                &:hover {
+                    color: #e6f5b4;
+                }
             }
-        }
 
-        &:active {
-            color: #e6f5b4;
-            transform: scale(0.95);
+            &:active {
+                color: #e6f5b4;
+                transform: scale(0.95);
+            }
         }
 
         @media (min-width: $pc) {
@@ -211,9 +213,10 @@
         }
 
         &_active {
-            pointer-events: none;
-            color: #e6f5b4;
-
+            @media (max-width: $pc) {
+                pointer-events: none;
+                color: #e6f5b4;
+            }
             @media (min-width: $pc) {
                 font-weight: 700;
                 color: #547e32;

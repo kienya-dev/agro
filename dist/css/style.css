@@ -1456,18 +1456,6 @@ label {
   transition: color 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
-.catalog-nav__link:active {
-  color: #e6f5b4;
-  -webkit-transform: scale(0.95);
-      -ms-transform: scale(0.95);
-          transform: scale(0.95);
-}
-
-.catalog-nav__link_active {
-  pointer-events: none;
-  color: #e6f5b4;
-}
-
 .catalog-nav__panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4619,6 +4607,24 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     visibility: visible;
     opacity: 1;
   }
+
+  .catalog-nav__link:active {
+    color: #e6f5b4;
+    -webkit-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+
+  .catalog-nav__link_active {
+    pointer-events: none;
+    color: #e6f5b4;
+  }
+}
+
+@media (max-width: 79.375em) and (any-hover: hover) {
+  .catalog-nav__link:hover {
+    color: #e6f5b4;
+  }
 }
 
 @media (max-width: 61.99875em) {
@@ -5055,10 +5061,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
 
   .catalog__control:hover svg {
     fill: #8abb63;
-  }
-
-  .catalog-nav__link:hover {
-    color: #e6f5b4;
   }
 
   .services__service:hover {
