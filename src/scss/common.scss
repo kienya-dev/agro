@@ -179,6 +179,39 @@
             transform: translateX(-50%);
         }
     }
+
+    // &_decoration {
+    //     &::after {
+    //         background-color: #ffffff;
+    //     }
+    // }
+
+    &_decoration_two {
+        span {
+            position: relative;
+            display: flex;
+            column-gap: rem(20);
+            justify-content: space-between;
+            align-items: center;
+            padding-top: em(26, 32);
+            max-width: rem(313);
+            &::before,
+            &::after {
+                content: "";
+                display: block;
+                height: rem(2);
+                background-color: #8abb63;
+            }
+
+            &::before {
+                flex: 0 0 calc(71% - rem(10));
+            }
+
+            &::after {
+                flex: 0 0 calc(29.5% - rem(10));
+            }
+        }
+    }
 }
 
 .button {

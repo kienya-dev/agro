@@ -4,7 +4,24 @@
     }
 }
 .catalog {
-    &__container {
+    &_product {
+        padding-top: rem(24);
+        @media (min-width: $mobile) {
+            padding-top: rem(44);
+        }
+
+        .title {
+            margin-bottom: rem(30);
+            @media (min-width: $mobile) {
+                margin-bottom: em(44, 32);
+            }
+        }
+
+        li:first-child {
+            @media (min-width: $mobile) and (max-width: $tablet) {
+                display: none;
+            }
+        }
     }
 
     &__title {
@@ -12,7 +29,12 @@
     }
 
     &__nav {
-        margin-bottom: rem(45);
+        position: relative;
+        z-index: 3;
+        margin-bottom: rem(32);
+        @media (min-width: $tablet) {
+            margin-bottom: rem(45);
+        }
     }
 
     &__grid {
@@ -38,9 +60,70 @@
             }
         }
     }
+
+    &__slider {
+        position: relative;
+        margin-bottom: rem(45);
+
+        @media (max-width: $mobileSmall) {
+            display: none;
+        }
+    }
+
+    &__control {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        svg {
+            width: rem(36);
+            height: rem(36);
+            stroke-width: 2px;
+            stroke: #8abb63;
+            fill: #ffffff;
+            transition: transform 0.3s, fill 0.3s;
+            @media (min-width: em(1429)) {
+                width: rem(58);
+                height: rem(58);
+            }
+        }
+
+        &_left {
+            left: rem(-10);
+            transform: rotate(180deg) translateY(100%);
+            @media (min-width: em(1429)) {
+                left: rem(-87);
+            }
+        }
+
+        &_right {
+            right: rem(-10);
+            transform: translateY(-100%);
+            @media (min-width: em(1429)) {
+                right: rem(-87);
+            }
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                svg {
+                    fill: #8abb63;
+                }
+            }
+        }
+
+        &:active {
+            svg {
+                fill: #8abb63;
+                transform: scale(0.9);
+            }
+        }
+    }
 }
 
 .catalog-nav {
+    &_active {
+        z-index: 22;
+    }
     &__box {
         visibility: visible;
         @media (max-width: $pc) {
@@ -52,6 +135,7 @@
     }
 
     & > .nav__box_active {
+        z-index: 999;
         @media (max-width: $pc) {
             top: rem(82);
             left: rem(20);
@@ -129,6 +213,7 @@
         &_active {
             pointer-events: none;
             color: #e6f5b4;
+
             @media (min-width: $pc) {
                 font-weight: 700;
                 color: #547e32;

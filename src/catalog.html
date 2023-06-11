@@ -6,7 +6,7 @@
 
 <body class="preload">
     <div class="wrapper">
-        <!-- @@include('html/_header.htm',{}) -->
+        @@include('html/_header.htm',{})
 
         <main class="page inner-page inner-page_catalog">
             <section class="catalog">
@@ -17,7 +17,8 @@
                 </div>
                 <nav class="catalog__nav catalog-nav nav" data-nav-box>
                     <div class="catalog-nav__panel">
-                        <button class="button catalog-nav__button nav__button" data-nav-button>
+                        <button class="button catalog-nav__button nav__button" data-nav-menu="nav__box_active"
+                            data-nav-button="nav__button_active">
                             <svg class="page__icon">
                                 <use xlink:href="img/icons/sprite.svg#i-catalog-button"></use>
                             </svg>
@@ -229,7 +230,9 @@
                 </div>
             </section>
         </main>
+        @@include('html/_footer.htm',{})
     </div>
+    <div class="overlay"></div>
 
     @@include('html/_js.htm',{})
 </body>

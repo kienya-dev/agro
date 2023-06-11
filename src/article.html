@@ -5,7 +5,9 @@
 })
 
 <body class="preload">
-	<div class=" wrapper">
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+
 		<main class="page inner-page inner-page_article">
 			<article class="article inner-page__article">
 				<div class="article__container">
@@ -176,7 +178,9 @@
 				</div>
 			</section>
 		</main>
+		@@include('html/_footer.htm',{})
 	</div>
+	<div class="overlay"></div>
 	@@include('html/_js.htm',{})
 </body>
 

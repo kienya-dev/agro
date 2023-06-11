@@ -1,0 +1,212 @@
+.contacts {
+    &__title {
+        margin-bottom: rem(18);
+
+        @media (max-width: $mobile) {
+            text-align: center;
+        }
+        @media (min-width: $tablet) {
+            margin-bottom: em(35, 32);
+        }
+    }
+
+    &__columns {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(40);
+        padding: rem(24) rem(16);
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+        @media (min-width: $mobile) {
+            padding: rem(37) rem(25);
+        }
+
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(36);
+    flex: 1 1 50%;
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(16);
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        column-gap: rem(12);
+        line-height: 1.25;
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        flex: 0 0 rem(30);
+        svg {
+            width: rem(24);
+            height: rem(24);
+            fill: #8abb63;
+        }
+    }
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(14);
+    }
+
+    &__caption {
+        color: #547e32;
+    }
+
+    &__phone {
+        font-size: rem(24);
+    }
+
+    &__call {
+        display: flex;
+        justify-content: center;
+        flex: 1 1 50%;
+    }
+
+    &__callback {
+        max-width: rem(444);
+    }
+
+    a,
+    button {
+        transition: color 0.3s, transform 0.3s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: #8abb63;
+            }
+
+            &:active {
+                color: #8abb63;
+                transform: scale(0.95);
+            }
+        }
+
+        &:active {
+            color: #8abb63;
+            transform: scale(0.95);
+        }
+    }
+}
+.callback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(15) rem(20) rem(28);
+    border-radius: 10px;
+    background-color: #89ba63;
+
+    @media (min-width: $tablet) {
+        padding: rem(15) rem(25) rem(33);
+    }
+
+    &__icon {
+        width: rem(66);
+        height: rem(66);
+        fill: #ffffff;
+    }
+
+    &__title {
+        margin-bottom: rem(30);
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        row-gap: rem(24);
+    }
+
+    &__input {
+        height: rem(54);
+    }
+
+    &__button {
+        height: rem(70);
+        border: 5px solid currentColor;
+        border-radius: 12px;
+        font-size: rem(18);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    label {
+        line-height: 1.25;
+        font-size: rem(14);
+        color: #ffffff;
+        cursor: pointer;
+        transition: opacity 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.75;
+            }
+        }
+    }
+}
+.input {
+    display: block;
+    width: 100%;
+
+    padding: rem(16) rem(13);
+    border-radius: 10px;
+    color: #2e302d;
+    transition: border-color 0.3s;
+
+    &::placeholder {
+        color: currentColor;
+        transition: color 0.3s;
+    }
+
+    &:focus {
+        border-color: #d1aa7c !important;
+        &::placeholder {
+            color: transparent;
+        }
+    }
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    color: #ffffff;
+
+    & + label {
+        display: inline-flex;
+        align-items: center;
+        user-select: none;
+    }
+
+    & + label::before {
+        content: "";
+        display: inline-block;
+        width: rem(24);
+        height: rem(24);
+        flex-shrink: 0;
+        flex-grow: 0;
+        background-color: #ffffff;
+        border-radius: 5px;
+        margin-right: rem(18);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
+    }
+
+    &:checked + label::before {
+        border: 5px solid #ffffff;
+        background-color: #89ba63;
+    }
+}

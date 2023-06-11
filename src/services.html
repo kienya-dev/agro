@@ -6,6 +6,8 @@
 
 <body class="preload">
     <div class="wrapper">
+        @@include('html/_header.htm',{})
+
         <main class="page inner-page inner-page_services">
             <section class="services">
                 <div class="services__container">
@@ -91,7 +93,10 @@
                 </div>
             </section>
         </main>
+        @@include('html/_footer.htm',{})
     </div>
+    <div class="overlay"></div>
+
     @@include('html/_js.htm',{})
 </body>
 

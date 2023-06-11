@@ -57,16 +57,29 @@ $responsiveType: 1;
 	transition: none !important;
 }
 
-body {
-	// Скролл заблокирован
-	.lock & {
-		overflow: hidden;
-		touch-action: none;
-	}
-	// Сайт загружен
-	.loaded & {
+.lock {
+	overflow: hidden;
+	touch-action: none;
+}
+
+.overlay {
+	background-color: rgba(241, 241, 241, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.3s all;
+
+	&_active {
+		opacity: 1;
+		visibility: visible;
 	}
 }
+
 // Оболочка ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
 	min-height: 100%;
@@ -281,7 +294,7 @@ body {
 	}
 
 	&_services {
-		padding: rem(24) 0 rem(66);
+		padding: rem(20) 0 rem(66);
 
 		@media (min-width: $tablet) {
 			padding: rem(24) 0 rem(50);
@@ -303,6 +316,22 @@ body {
 		}
 		@media (min-width: $mobile) and (max-width: $tablet) {
 			padding: rem(20) 0 rem(50);
+		}
+	}
+
+	&_product {
+		padding: rem(20) 0 rem(10);
+
+		@media (min-width: $tablet) {
+			padding: rem(27) 0 rem(21);
+		}
+	}
+
+	&_contacts {
+		padding: rem(20) 0 rem(32);
+
+		@media (min-width: $tablet) {
+			padding: rem(24) 0 rem(49);
 		}
 	}
 
@@ -360,3 +389,6 @@ body {
 @import "about";
 @import "news-page";
 @import "article-page";
+@import "product";
+@import "contacts";
+@import "home";

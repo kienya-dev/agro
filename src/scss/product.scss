@@ -1,0 +1,185 @@
+.product {
+    &__columns {
+        display: flex;
+        justify-content: space-between;
+        gap: rem(18) rem(24);
+        margin-bottom: rem(50);
+        @media (max-width: $mobile) {
+            flex-direction: column;
+            margin-bottom: rem(40);
+        }
+    }
+
+    &__figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 1 rem(498);
+        @include adaptiveValue(height, 495, 240, 992, 375, 1);
+        padding: 1rem;
+        border: 1px solid #d9d9d9;
+        border-radius: 10px;
+
+        @media (min-width: $tablet) {
+            height: rem(495);
+        }
+
+        img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__content {
+        @media (min-width: $mobile) {
+            flex: 1 1 rem(705);
+        }
+    }
+
+    &__title {
+        margin-bottom: rem(32);
+        @media (min-width: $mobile) {
+            margin-bottom: em(42, 32);
+        }
+    }
+
+    &__text {
+        margin-bottom: rem(20);
+        @media (min-width: $mobile) {
+            margin-bottom: rem(26);
+        }
+    }
+
+    &__box {
+        margin-bottom: rem(20);
+        @media (min-width: $mobile) {
+            margin-bottom: rem(32);
+        }
+    }
+
+    &__caption {
+        margin-bottom: rem(12);
+        color: #8abb63;
+    }
+
+    &__link {
+        display: inline-flex;
+        column-gap: rem(20);
+        align-items: center;
+        padding-top: rem(4);
+        line-height: 1.2;
+
+        span {
+            text-decoration: underline;
+        }
+    }
+
+    &__icon {
+        width: rem(26);
+        height: rem(31);
+        fill: #8abb63;
+    }
+}
+
+.accordion {
+    &__header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #f1f1f1;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #d9d9d9;
+
+                .accordion__icon {
+                    background-color: #f1f1f1;
+
+                    svg {
+                        fill: #2e302d;
+                    }
+                }
+            }
+        }
+
+        &:active {
+            background-color: #d9d9d9;
+
+            .accordion__icon {
+                background-color: #f1f1f1;
+
+                svg {
+                    fill: #2e302d;
+                }
+            }
+        }
+    }
+
+    &__title {
+        flex: 1 1 100%;
+        padding: rem(10) rem(14);
+        @include adaptiveValue(font-size, 24, 16, 992, 480, 1);
+        font-weight: 500;
+        @media (min-width: $tablet) {
+            font-size: rem(24);
+        }
+
+        @media (min-width: $mobileSmall) {
+            padding: rem(15) rem(20);
+        }
+    }
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: rem(54);
+        height: rem(54);
+        background-color: #d9d9d9;
+        transition: background-color 0.3s;
+
+        svg {
+            width: rem(20);
+            height: rem(20);
+            fill: #848484;
+            transition: transform 0.2s, fill 0.2s;
+            @media (min-width: $mobileSmall) {
+                width: rem(24);
+                height: rem(24);
+            }
+        }
+    }
+
+    &__content {
+        padding: rem(10) rem(16);
+
+        @media (min-width: $mobileSmall) {
+            padding: rem(14) rem(22);
+        }
+    }
+
+    &__item:not(.accordion__item_show) .accordion__body {
+        display: none;
+    }
+
+    &__item {
+        margin-bottom: rem(12);
+
+        &_show {
+            .accordion__icon {
+                background-color: #8abb63;
+                svg {
+                    transform: rotate(-180deg);
+                    fill: #ffffff;
+                }
+            }
+        }
+    }
+}
