@@ -167,6 +167,10 @@
     }
 
     &__item {
+        @media (max-width: $pc) {
+            height: rem(40);
+        }
+
         &:not(:first-child) {
             @media (min-width: $pc) {
                 padding-left: rem(22);

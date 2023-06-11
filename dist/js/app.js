@@ -3434,6 +3434,9 @@
         if (menuToggles.length) {
             const toggleMenu = (toggler, classButton, classMenu) => {
                 const boxMenu = toggler.closest("[data-nav-box]");
+                const clientHeight = document.documentElement.clientHeight;
+                const navList = classButton === "button_contact_active" ? boxMenu.querySelector(".header__menu-contact") : boxMenu.querySelector(".nav__list");
+                !navList.style.maxHeight ? navList.style.maxHeight = clientHeight - 100 + "px" : navList.style.maxHeight = "";
                 const menu = toggler.classList.contains("button_contact") ? boxMenu.querySelectorAll("[data-nav-list]")[1] : boxMenu.querySelector("[data-nav-list]");
                 const links = boxMenu.querySelectorAll("a");
                 const icon = boxMenu.querySelector(".catalog-nav__icon");
@@ -3452,6 +3455,7 @@
                         menu.classList.remove(classMenu);
                         body.classList.remove("lock");
                         overlay.classList.remove("overlay_active");
+                        navList.style.maxHeight = "";
                         if (icon) icon.classList.remove("catalog-nav__icon_active");
                         if (catalogNav) catalogNav.classList.remove("catalog-nav_active");
                     }
@@ -3461,6 +3465,7 @@
                     menu.classList.remove(classMenu);
                     body.classList.remove("lock");
                     overlay.classList.remove("overlay_active");
+                    navList.style.maxHeight = "";
                     if (icon) icon.classList.remove("catalog-nav__icon_active");
                     if (catalogNav) catalogNav.classList.remove("catalog-nav_active");
                 }));

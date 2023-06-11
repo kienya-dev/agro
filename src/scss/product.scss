@@ -69,9 +69,20 @@
         align-items: center;
         padding-top: rem(4);
         line-height: 1.2;
+        transition: color 0.3s, transform 0.3s;
 
         span {
             text-decoration: underline;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #6abb63;
+            }
+        }
+        &:active {
+            transform: scale(0.95);
+            color: #6abb63;
         }
     }
 

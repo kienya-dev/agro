@@ -890,14 +890,6 @@ label {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.header__contact-column_active {
-  top: 5.25rem;
-  left: auto;
-  right: 1.25rem;
-  visibility: visible;
-  opacity: 1;
-}
-
 .header__link {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -1963,10 +1955,22 @@ label {
           align-items: center;
   padding-top: 0.25rem;
   line-height: 1.2;
+  -webkit-transition: color 0.3s, -webkit-transform 0.3s;
+  transition: color 0.3s, -webkit-transform 0.3s;
+  -o-transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
 .product__link span {
   text-decoration: underline;
+}
+
+.product__link:active {
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
+  color: #6abb63;
 }
 
 .product__icon {
@@ -4333,6 +4337,11 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    overflow: scroll auto;
+    overflow-x: auto;
   }
 
   .nav__item {
@@ -4342,7 +4351,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 2.5rem;
     padding: 0.625rem 0.25rem 0.625rem 1.1875rem;
   }
 
@@ -4438,7 +4446,17 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     background-color: rgba(255, 255, 255, 0.7);
   }
 
+  .header__menu-contact {
+    overflow: scroll auto;
+    overflow-x: auto;
+  }
+
   .header__contact-column_active {
+    top: 5.25rem;
+    left: auto;
+    right: 1.25rem;
+    visibility: visible;
+    opacity: 1;
     z-index: 25;
   }
 
@@ -4606,6 +4624,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     left: 1.25rem;
     visibility: visible;
     opacity: 1;
+  }
+
+  .catalog-nav__item {
+    height: 2.5rem;
   }
 
   .catalog-nav__link:active {
@@ -5090,6 +5112,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader {
     -webkit-transform: scale(1.12);
         -ms-transform: scale(1.12);
             transform: scale(1.12);
+  }
+
+  .product__link:hover {
+    color: #6abb63;
   }
 
   .accordion__header:hover {
